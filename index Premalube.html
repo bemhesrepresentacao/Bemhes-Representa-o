@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bemhes Representação - Lubrificantes e Graxas de Alta Performance</title>
+  <style>
+    :root {
+      --primary: #004b93;
+      --secondary: #27ae60;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+    header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+
+    container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+
+    .section-title { text-align: center; margin-bottom: 2rem; color: var(--primary); font-size: 1.8rem; }
+
+    /* Cards de Produtos */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--primary); }
+    .card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+    .card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; flex-grow: 1; }
+    .card-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .btn { display: inline-block; padding: 0.6rem 1rem; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; cursor: pointer; border: none; font-size: 0.9rem; transition: background 0.3rem; }
+    .btn-outline { border: 1px solid var(--primary); color: var(--primary); background: transparent; }
+    .btn-outline:hover { background: var(--primary); color: white; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: #003666; }
+    .btn-whatsapp { background: var(--secondary); color: white; width: 100%; margin-top: 0.5rem; }
+    .btn-whatsapp:hover { background: #219150; }
+
+    /* Formulário de Cotação e Visita */
+    .form-container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 700px; margin: 0 auto 3rem auto; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; }
+    .checkbox-group { display: flex; align-items: center; gap: 0.5rem; }
+    .checkbox-group input { width: auto; }
+
+    /* Modal PDF */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; }
+    .modal-content { background: white; width: 90%; max-width: 800px; height: 80vh; border-radius: 8px; position: relative; padding: 1rem; display: flex; flex-direction: column; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; color: var(--dark); font-weight: bold; }
+    iframe { width: 100%; height: 100%; border: none; margin-top: 1rem; }
+
+    footer { text-align: center; padding: 1.5rem; background: var(--dark); color: white; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bemhes Representação</h1>
+    <p>Soluções em Lubrificação Industrial e Maquinário Pesado (NCH / Solenis)</p>
+  </header>
+
+  <div class="container">
+    
+    <h2 class="section-title">Nossos Produtos (Linha PREMALUBE)</h2>
+    <div class="grid">
+      
+      <div class="card">
+        <h3>PREMALUBE (NLGI 2, 1, 0, 00)</h3>
+        <p>Graxa de complexo de alumínio com bissulfeto de molibdênio[cite: 254, 259]. Desenvolvida para máquinas pesadas e equipamentos industriais sob cargas extremas e água[cite: 254, 255].</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="openPdf('PREMALUBE.pdf')">Ficha Técnica</button>
+          <a class="btn btn-whatsapp" href="#cotacao" onclick="selecionarProduto('PREMALUBE')">Solicitar Cotação</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>PREMALUBE XTREME</h3>
+        <p>Formulação com sulfonato de cálcio para rotações até 20.000 RPM e temperaturas extremas (-23°C a 204°C contínuos)[cite: 185, 187]. Dura até 5x mais que graxas convencionais[cite: 185].</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="openPdf('PREMALUBE XTREME.pdf')">Ficha Técnica</button>
+          <a class="btn btn-whatsapp" href="#cotacao" onclick="selecionarProduto('PREMALUBE XTREME')">Solicitar Cotação</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>PREMALUBE XTREME GREEN</h3>
+        <p>Graxa sintética verde com tecnologia Nano-Guard™[cite: 112, 114]. Excelente resistência a água salgada, CO2 e fluídos agressivos[cite: 113].</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="openPdf('PREMALUBE XTREME GREEN.pdf')">Ficha Técnica</button>
+          <a class="btn btn-whatsapp" href="#cotacao" onclick="selecionarProduto('PREMALUBE XTREME GREEN')">Solicitar Cotação</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>PREMALUBE FG</h3>
+        <p>Graxa branca de grau alimentício (USDA H1 / NSF)[cite: 1, 3]. Proteção atóxica contra cargas e lavagem em indústrias alimentícias e farmacêuticas[cite: 1, 2].</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="openPdf('PREMALUBE FG.pdf')">Ficha Técnica</button>
+          <a class="btn btn-whatsapp" href="#cotacao" onclick="selecionarProduto('PREMALUBE FG')">Solicitar Cotação</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>PREMALUBE XTREME FG</h3>
+        <p>O mais alto desempenho de grau alimentício à base de sulfonato de cálcio[cite: 58, 60]. Suporta rotações de até 20.000 rpm e lavagens submersas[cite: 58, 59].</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="openPdf('PREMALUBE XTREME FOOD GRADE.pdf')">Ficha Técnica</button>
+          <a class="btn btn-whatsapp" href="#cotacao" onclick="selecionarProduto('PREMALUBE XTREME FOOD GRADE')">Solicitar Cotação</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Testes e Demonstrações Práticas</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Teste de Resistência à Água</h3>
+        <p>Demonstração da aderência do lubrificante Premalube na presença de água corrente, mantendo a viscosidade sem ser lavado.</p>
+        <video controls width="100%" style="border-radius: 5px; margin-top: 10px;">
+          <source src="Premalube teste de água.mp4" type="video/mp4">
+          Seu navegador não suporta a exibição deste vídeo.
+        </video>
+      </div>
+
+      <div class="card">
+        <h3>Teste de Extrema Pressão / Carga</h3>
+        <p>Comparativo de capacidade de carga e resistência ao impacto direto da graxa Premalube contra graxas convencionais do mercado.</p>
+        <video controls width="100%" style="border-radius: 5px; margin-top: 10px;">
+          <source src="Premalube teste de carga.mp4" type="video/mp4">
+          Seu navegador não suporta a exibição deste vídeo.
+        </video>
+      </div>
+
+      <div class="card">
+        <h3>Teste de Temperatura Extrema</h3>
+        <p>Demonstração de estabilidade térmica do lubrificante exposto ao calor direto de maçarico sem perder as propriedades.</p>
+        <video controls width="100%" style="border-radius: 5px; margin-top: 10px;">
+          <source src="Premalube teste de temperatura.mp4" type="video/mp4">
+          Seu navegador não suporta a exibição deste vídeo.
+        </video>
+      </div>
+    </div>
+
+    <div class="form-container" id="cotacao">
+      <h2 style="text-align: center; color: var(--primary); margin-bottom: 1.5rem;">Solicitação de Cotação / Visita Técnica</h2>
+      <form id="quoteForm">
+        
+        <div class="form-group">
+          <label for="nome">Nome / Empresa:</label>
+          <input type="text" id="nome" required placeholder="Digite seu nome ou empresa">
+        </div>
+
+        <div class="form-group">
+          <label for="produto">Produto de Interesse:</label>
+          <select id="produto" required>
+            <option value="">Selecione um produto</option>
+            <option value="PREMALUBE">PREMALUBE (Padrão)</option>
+            <option value="PREMALUBE XTREME">PREMALUBE XTREME</option>
+            <option value="PREMALUBE XTREME GREEN">PREMALUBE XTREME GREEN</option>
+            <option value="PREMALUBE FG">PREMALUBE FG (Grau Alimentício)</option>
+            <option value="PREMALUBE XTREME FOOD GRADE">PREMALUBE XTREME FOOD GRADE</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="consumo">Consumo Anual Estimado (Kg ou Caixas):</label>
+          <input type="text" id="consumo" required placeholder="Ex: 100 kg/ano">
+        </div>
+
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="visita">
+          <label for="visita" style="margin-bottom:0; cursor:pointer;">Desejo solicitar uma <strong>Visita Técnica Gratuita</strong></label>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Observações adicionais (opcional):</label>
+          <textarea id="mensagem" rows="3" placeholder="Sua aplicação, modelo do equipamento, etc."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <button type="button" class="btn btn-whatsapp" style="flex:1;" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+          <button type="button" class="btn btn-primary" style="flex:1;" onclick="enviarEmail()">Enviar por E-mail</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <div class="modal" id="pdfModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePdf()">&times;</span>
+      <iframe id="pdfViewer" src=""></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>Bemhes Representação - Marcão da Graxa | Solenis / NCH</p>
+    <p>Contato: (43) 98842-8240 | bemhesrepresentacao@gmail.com</p>
+  </footer>
+
+  <script>
+    function openPdf(filename) {
+      document.getElementById('pdfViewer').src = filename;
+      document.getElementById('pdfModal').style.display = 'flex';
+    }
+
+    function closePdf() {
+      document.getElementById('pdfModal').style.display = 'none';
+      document.getElementById('pdfViewer').src = '';
+    }
+
+    function selecionarProduto(nomeProduto) {
+      document.getElementById('produto').value = nomeProduto;
+    }
+
+    function getFormValues() {
+      return {
+        nome: document.getElementById('nome').value,
+        produto: document.getElementById('produto').value,
+        consumo: document.getElementById('consumo').value,
+        visita: document.getElementById('visita').checked ? 'Sim' : 'Não',
+        mensagem: document.getElementById('mensagem').value
+      };
+    }
+
+    function enviarWhatsApp() {
+      const data = getFormValues();
+      if (!data.nome || !data.produto || !data.consumo) {
+        alert('Por favor, preencha o Nome, Produto de Interesse e Consumo Anual.');
+        return;
+      }
+
+      let texto = `*SOLICITAÇÃO DE COTAÇÃO - BEMHES*\n\n`;
+      texto += `*Cliente/Empresa:* ${data.nome}\n`;
+      texto += `*Produto de Interesse:* ${data.produto}\n`;
+      texto += `*Consumo Anual Estimado:* ${data.consumo}\n`;
+      texto += `*Solicita Visita Técnica:* ${data.visita}\n`;
+      if (data.mensagem) texto += `*Observações:* ${data.mensagem}\n`;
+
+      const encodedText = encodeURIComponent(texto);
+      window.open(`https://wa.me/5543988428240?text=${encodedText}`, '_blank');
+    }
+
+    function enviarEmail() {
+      const data = getFormValues();
+      if (!data.nome || !data.produto || !data.consumo) {
+        alert('Por favor, preencha o Nome, Produto de Interesse e Consumo Anual.');
+        return;
+      }
+
+      const subject = encodeURIComponent(`Cotação / Solicitação - ${data.produto}`);
+      let body = `Nome / Empresa: ${data.nome}\n`;
+      body += `Produto de Interesse: ${data.produto}\n`;
+      body += `Consumo Anual Estimado: ${data.consumo}\n`;
+      body += `Solicita Visita Técnica: ${data.visita}\n`;
+      if (data.mensagem) body += `Observações: ${data.mensagem}\n`;
+
+      const encodedBody = encodeURIComponent(body);
+      window.location.href = `mailto:bemhesrepresentacao@gmail.com?subject=${subject}&body=${encodedBody}`;
+    }
+  </script>
+</body>
+</html>
