@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemhes Representação - Catálogo de Lubrificantes CERTOP (NCH)</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #003366;
+            --accent-color: #25d366;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.8rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .center-wrapper {
+            text-align: center;
+        }
+
+        /* Grid de Produtos */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul {
+            list-style-type: square;
+            margin-left: 1.2rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 10rem;
+            font-weight: bold;
+        }
+
+        .btn-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Galeria de Vídeos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .video-card video {
+            width: 100%;
+            border-radius: 6px;
+            max-height: 250px;
+            background-color: #000;
+        }
+
+        .video-card h4 {
+            margin-top: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Formulários */
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--accent-color);
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bemhes Representação</h1>
+        <p>Soluções de Alto Desempenho em Lubrificantes Industriais e Automotivos NCH</p>
+    </header>
+
+    <nav>
+        <a href="#produtos">Produtos</a>
+        <a href="#demonstracoes">Demonstrações</a>
+        <a href="#cotacao">Solicitar Cotação</a>
+        <a href="#visita">Visita Técnica</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="center-wrapper">
+            <h2 id="produtos" class="section-title">Nossos Produtos</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>CERTOP 80W90 e 85W140</h3>
+                    <p>Óleo multiviscoso de alto desempenho para engrenagens e aplicações severas.</p>
+                    <br>
+                    <strong>Resumo das Vantagens:</strong>
+                    <ul>
+                        <li>Dura até 4 vezes mais que óleos convencionais[cite: 2].</li>
+                        <li>Elimina desgastes por partidas a seco[cite: 2].</li>
+                        <li>Inibidores e condicionadores para controle de vazamentos nos selos[cite: 2].</li>
+                        <li>Ampla faixa de temperatura (até 160°C contínuos)[cite: 2].</li>
+                    </ul>
+                </div>
+                <a href="CERTOP 80W90 E 85W140 - CATÁLOGO.pdf" target="_blank" class="btn-link">Ver Catálogo Completo (PDF)</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>CERTOP INDUSTRIAL</h3>
+                    <p>Óleo para engrenagens e rolamentos em equipamentos industriais pesados (ISO 68 a 680).</p>
+                    <br>
+                    <strong>Resumo das Vantagens:</strong>
+                    <ul>
+                        <li>Proteção superior contra vazamentos, oxidação e espuma.</li>
+                        <li>Separa a água para uma drenagem facilitada[cite: 123].</li>
+                        <li>Dura até 4 vezes mais que óleos comuns[cite: 123].</li>
+                        <li>Reduz a temperatura operacional e ruídos[cite: 123].</li>
+                    </ul>
+                </div>
+                <a href="CERTOP INDUSTRIAL - CATÁLOGO.pdf" target="_blank" class="btn-link">Ver Catálogo Completo (PDF)</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>CERTOP FG (Grau Alimentício)</h3>
+                    <p>Óleo premium H1 (FG 90 / FG 140) para equipamentos de processamento alimentar[cite: 62, 66].</p>
+                    <br>
+                    <strong>Resumo das Vantagens:</strong>
+                    <ul>
+                        <li>Certificação USDA H1 / FDA[cite: 62, 63].</li>
+                        <li>Não forma espuma e combate a elevação de temperatura.</li>
+                        <li>Alta resistência à oxidação e excelente proteção antidesgaste.</li>
+                        <li>Excelente separação de água.</li>
+                    </ul>
+                </div>
+                <a href="CERTOP 90 E 140 FG CATÁLOGO.pdf" target="_blank" class="btn-link">Ver Catálogo Completo (PDF)</a>
+            </div>
+        </div>
+
+        <div class="center-wrapper">
+            <h2 id="demonstracoes" class="section-title">Demonstrações Práticas</h2>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls>
+                    <source src="Certop - caixa de direção.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+                <h4>CERTOP na Caixa de Direção</h4>
+            </div>
+            <div class="video-card">
+                <video controls>
+                    <source src="Certop - Não espirra.MP4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+                <h4>Adesividade Superior (Não Espirra)</h4>
+            </div>
+            <div class="video-card">
+                <video controls>
+                    <source src="Certop - Não sai do equipamento.MP4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+                <h4>Fixação e Película de Proteção Continuada</h4>
+            </div>
+        </div>
+
+        <div class="center-wrapper">
+            <h2 id="cotacao" class="section-title">Solicitar Cotação</h2>
+        </div>
+        <div class="form-container">
+            <form id="formCotacao">
+                <div class="form-group">
+                    <label for="nomeCotacao">Nome / Empresa:</label>
+                    <input type="text" id="nomeCotacao" required placeholder="Digite seu nome ou empresa">
+                </div>
+                <div class="form-group">
+                    <label for="produtoInteresse">Produto de Interesse:</label>
+                    <select id="produtoInteresse" required>
+                        <option value="">Selecione o produto</option>
+                        <option value="CERTOP 80W90 / 85W140">CERTOP 80W90 e 85W140</option>
+                        <option value="CERTOP INDUSTRIAL">CERTOP INDUSTRIAL (ISO 68 a 680)</option>
+                        <option value="CERTOP FG (Grau Alimentício)">CERTOP FG (Grau Alimentício)</option>
+                        <option value="Outros / Não sei ao certo">Outros / Preciso de orientação</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="consumoAnual">Consumo Anual Estimado (em Litros ou Kg):</label>
+                    <input type="text" id="consumoAnual" required placeholder="Ex: 500 Litros/ano">
+                </div>
+                <div class="form-group">
+                    <label for="mensagemCotacao">Observações Adicionais:</label>
+                    <textarea id="mensagemCotacao" rows="3" placeholder="Insira detalhes específicos da sua aplicação"></textarea>
+                </div>
+
+                <button type="button" onclick="enviarCotacaoEmail()" class="btn-submit">Enviar Cotação por E-mail</button>
+                <button type="button" onclick="enviarCotacaoWhatsApp()" class="btn-submit btn-whatsapp">Solicitar Cotação via WhatsApp</button>
+            </form>
+        </div>
+
+        <div class="center-wrapper">
+            <h2 id="visita" class="section-title">Agendar Visita Técnica</h2>
+        </div>
+        <div class="form-container">
+            <form id="formVisita">
+                <div class="form-group">
+                    <label for="nomeVisita">Nome do Contato:</label>
+                    <input type="text" id="nomeVisita" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="empresaVisita">Nome da Empresa / Cidade:</label>
+                    <input type="text" id="empresaVisita" required placeholder="Sua empresa e localização">
+                </div>
+                <div class="form-group">
+                    <label for="telefoneVisita">Telefone / WhatsApp de Contato:</label>
+                    <input type="tel" id="telefoneVisita" required placeholder="(XX) XXXXX-XXXX">
+                </div>
+                <div class="form-group">
+                    <label for="detalhesVisita">Aplicações / Necessidades na Planta:</label>
+                    <textarea id="detalhesVisita" rows="3" placeholder="Descreva brevemente sobre as máquinas ou problemas enfrentados (ex: vazamentos, superaquecimento)"></textarea>
+                </div>
+
+                <button type="button" onclick="enviarVisitaEmail()" class="btn-submit">Agendar Visita por E-mail</button>
+                <button type="button" onclick="enviarVisitaWhatsApp()" class="btn-submit btn-whatsapp">Agendar Visita via WhatsApp</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>Bemhes Representação</strong></p>
+        <p>WhatsApp: <a href="https://wa.me/5543988428240">(43) 98842-8240</a> | E-mail: bemhesrepresentacao@gmail.com</p>
+    </footer>
+
+    <script>
+        const phoneWA = "5543988428240";
+        const emailDestino = "bemhesrepresentacao@gmail.com";
+
+        // Cotação via WhatsApp
+        function enviarCotacaoWhatsApp() {
+            const nome = document.getElementById('nomeCotacao').value;
+            const produto = document.getElementById('produtoInteresse').value;
+            const consumo = document.getElementById('consumoAnual').value;
+            const msg = document.getElementById('mensagemCotacao').value;
+
+            if(!nome || !produto || !consumo) {
+                alert("Por favor, preencha o Nome, Produto de Interesse e Consumo Anual.");
+                return;
+            }
+
+            const texto = `Olá! Gostaria de solicitar uma *Cotação*:%0A%0A` +
+                `*Nome/Empresa:* ${encodeURIComponent(nome)}%0A` +
+                `*Produto de Interesse:* ${encodeURIComponent(produto)}%0A` +
+                `*Consumo Anual:* ${encodeURIComponent(consumo)}%0A` +
+                `*Observações:* ${encodeURIComponent(msg)}`;
+
+            window.open(`https://wa.me/${phoneWA}?text=${texto}`, '_blank');
+        }
+
+        // Cotação via E-mail
+        function enviarCotacaoEmail() {
+            const nome = document.getElementById('nomeCotacao').value;
+            const produto = document.getElementById('produtoInteresse').value;
+            const consumo = document.getElementById('consumoAnual').value;
+            const msg = document.getElementById('mensagemCotacao').value;
+
+            if(!nome || !produto || !consumo) {
+                alert("Por favor, preencha o Nome, Produto de Interesse e Consumo Anual.");
+                return;
+            }
+
+            const assunto = `Solicitação de Cotação - ${nome}`;
+            const corpo = `Solicitação de Cotação:%0D%0A%0D%0A` +
+                `Nome/Empresa: ${nome}%0D%0A` +
+                `Produto de Interesse: ${produto}%0D%0A` +
+                `Consumo Anual Estimado: ${consumo}%0D%0A` +
+                `Observações: ${msg}`;
+
+            window.location.href = `mailto:${emailDestino}?subject=${encodeURIComponent(assunto)}&body=${corpo}`;
+        }
+
+        // Visita Técnica via WhatsApp
+        function enviarVisitaWhatsApp() {
+            const nome = document.getElementById('nomeVisita').value;
+            const empresa = document.getElementById('empresaVisita').value;
+            const telefone = document.getElementById('telefoneVisita').value;
+            const detalhes = document.getElementById('detalhesVisita').value;
+
+            if(!nome || !empresa || !telefone) {
+                alert("Por favor, preencha o Nome, Empresa/Cidade e Telefone.");
+                return;
+            }
+
+            const texto = `Olá! Gostaria de agendar uma *Visita Técnica*:%0A%0A` +
+                `*Nome:* ${encodeURIComponent(nome)}%0A` +
+                `*Empresa/Cidade:* ${encodeURIComponent(empresa)}%0A` +
+                `*Telefone:* ${encodeURIComponent(telefone)}%0A` +
+                `*Necessidades/Aplicações:* ${encodeURIComponent(detalhes)}`;
+
+            window.open(`https://wa.me/${phoneWA}?text=${texto}`, '_blank');
+        }
+
+        // Visita Técnica via E-mail
+        function enviarVisitaEmail() {
+            const nome = document.getElementById('nomeVisita').value;
+            const empresa = document.getElementById('empresaVisita').value;
+            const telefone = document.getElementById('telefoneVisita').value;
+            const detalhes = document.getElementById('detalhesVisita').value;
+
+            if(!nome || !empresa || !telefone) {
+                alert("Por favor, preencha o Nome, Empresa/Cidade e Telefone.");
+                return;
+            }
+
+            const assunto = `Solicitação de Visita Técnica - ${empresa}`;
+            const corpo = `Solicitação de Visita Técnica:%0D%0A%0D%0A` +
+                `Nome do Contato: ${nome}%0D%0A` +
+                `Empresa / Localização: ${empresa}%0D%0A` +
+                `Telefone de Contato: ${telefone}%0D%0A` +
+                `Detalhes da Aplicação: ${detalhes}`;
+
+            window.location.href = `mailto:${emailDestino}?subject=${encodeURIComponent(assunto)}&body=${corpo}`;
+        }
+    </script>
+</body>
+</html>
